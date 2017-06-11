@@ -18,12 +18,6 @@
 * Client (components):
   * TBD
 
-
-## Team
-* Keeley Hammond
-* Ivy Patton
-* Chris Wallace
-
 ## Technical Stack
 * React
 * Redux
@@ -35,3 +29,11 @@
 * Plaid
 * Synapsepay
 * Web script for donations
+
+## Team
+* Keeley Hammond
+* Ivy Patton
+* Chris Wallace
+
+## Special Thanks
+To our friends and families, the team at Code Fellows, Marty Nelson and many more.
