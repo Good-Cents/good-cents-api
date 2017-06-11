@@ -16,7 +16,13 @@
   * Transactions
   * Contributions/Donations
 * Client (components):
-  * TBD
+  * Spare Change counter
+  * Goal progress bars
+  * "Add To Goal" buttons - when hovering over, would raise goal bars with amount of spare change.
+  * "Donate Now" button - takes you to a donation page
+    * MVP: Dropdown list: Choose what and how much you want to allocate towards a goal or donation.
+  * Transaction Log: Transation and change stored from transaction
+  * STRETCH: Allow users to choose what transactions they're skimming change from.
 
 ## Technical Stack
 * React
