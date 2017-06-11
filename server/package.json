@@ -1,0 +1,22 @@
+{
+  "name": "good-cents-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Good-Cents/good-cents-api.git"
+  },
+  "author": "Keeley Hammond, Ivy Patton, Chris Wallace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Good-Cents/good-cents-api/issues"
+  },
+  "homepage": "https://github.com/Good-Cents/good-cents-api#readme"
+}
