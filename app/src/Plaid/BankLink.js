@@ -24,7 +24,7 @@ export default function BankLink() {
   return (
     <div>
       Welcome to Good Cents! Link your bank account below:
-        <button onClick={() => handler.open()}></button>
+        <button onClick={() => handler.open()}>Link Bank Account</button>
     </div>
   );
 }
