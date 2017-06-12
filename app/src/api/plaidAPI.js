@@ -4,7 +4,7 @@ export default {
   getAccessToken(publicToken) {
     return fetch(`${API_URL}/get_access_token`, {
       method: 'POST',
-      body: JSON.stringify(publicToken),
+      body: JSON.stringify({public_token:publicToken}),
       headers: new Headers({'Content-Type':'application/json'})
 
     })
