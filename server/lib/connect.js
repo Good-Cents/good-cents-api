@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
-const DB_URI = 'mongodb://localhost:27017/goodcents';
+const DB_URI = process.env.MONGODB_URI;
+
 mongoose.connect(DB_URI);
+
 
 mongoose.connection.on('connected', function () {
   console.log('Mongoose default connection open to ' + DB_URI);
