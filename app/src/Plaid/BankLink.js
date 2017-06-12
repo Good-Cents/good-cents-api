@@ -1,5 +1,5 @@
 /* globals Plaid */
-import React, { Component } from 'react';
+import React from 'react';
 
 // SCREEN:
 // Linked Accounts
@@ -20,7 +20,7 @@ const handler = Plaid.create({
   }
 });
 
-export default function BankLink({ }) {
+export default function BankLink() {
   return (
     <div>
       Welcome to Good Cents! Link your bank account below:
