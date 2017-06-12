@@ -30,7 +30,6 @@ let ITEM_ID = null;
 // Get access token and create ITEM
 
 router.post('/get_access_token', function (request, response) {
-  console.log('*****************************');
   PUBLIC_TOKEN = request.body.public_token;
   return plaidClient.exchangePublicToken(PUBLIC_TOKEN)
     .then(tokenResponse => {
