@@ -7,7 +7,11 @@ const schema = new Schema({
   name: String,
   email: String,
   password: String,
-  goals: [{type: Schema.Types.ObjectId, ref: 'Goal'}]
+  goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }],
+  accounts: [{
+    name: String,
+    primary: Boolean
+  }]
 });
 
 module.exports = mongoose.model('User', schema);

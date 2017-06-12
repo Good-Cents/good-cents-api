@@ -1,8 +1,7 @@
+require('dotenv').config();
 const plaid = require('plaid');
 var envvar = require('envvar');
 var moment = require('moment');
-
-require('dotenv').config();
 
 const Router = require('express').Router;
 const router = Router();
@@ -27,35 +26,30 @@ var PUBLIC_TOKEN = null;
 var ITEM_ID = null;
 
 // Get initial server up
-router.get('/', function (request, response, next) {
-  response.render('index.ejs', {
-    PLAID_PUBLIC_KEY: PLAID_PUBLIC_KEY,
-    PLAID_ENV: PLAID_ENV,
-  });
-});
 
 // Get access token and create ITEM
-router.post('/get_access_token', function (request, response, next) {
+router.post('/get_access_token', function (request, response) {
   PUBLIC_TOKEN = request.body.public_token;
-  plaidClient.exchangePublicToken(PUBLIC_TOKEN, function (error, tokenResponse) {
-    if (error != null) {
+  return plaidClient.exchangePublicToken(PUBLIC_TOKEN)
+    .then(tokenResponse => {
+      ACCESS_TOKEN = tokenResponse.access_token;
+      ITEM_ID = tokenResponse.item_id;
+      console.log('Access Token: ' + ACCESS_TOKEN);
+      console.log('Item ID: ' + ITEM_ID);
+      response.json({
+        'error': false
+      });
+    })
+    .catch(error => {
       var msg = 'Could not exchange public_token!';
       console.log(msg + '\n' + error);
       return response.json({
         error: msg
       });
-    }
-    ACCESS_TOKEN = tokenResponse.access_token;
-    ITEM_ID = tokenResponse.item_id;
-    console.log('Access Token: ' + ACCESS_TOKEN);
-    console.log('Item ID: ' + ITEM_ID);
-    response.json({
-      'error': false
     });
-  });
 });
 
-router.post('/set_access_token', function (request, response, next) {
+router.post('/set_access_token', function (request, response) {
   ACCESS_TOKEN = request.body.access_token;
   console.log('Access Token: ' + ACCESS_TOKEN);
   response.json({
@@ -63,7 +57,7 @@ router.post('/set_access_token', function (request, response, next) {
   });
 });
 
-router.get('/accounts', function (request, response, next) {
+router.get('/accounts', function (request, response) {
   // Retrieve high-level account information and account and routing numbers
   // for each account associated with the Item.
   plaidClient.getAuth(ACCESS_TOKEN, function (error, authResponse) {
