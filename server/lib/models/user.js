@@ -8,6 +8,8 @@ const schema = new Schema({
   email: String,
   password: String,
   hash: String,
+  plaidAccessToken: String,
+  bankAccountEntered: Boolean,
   goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }],
   accounts: [{
     name: String,
