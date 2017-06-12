@@ -41,7 +41,7 @@ router
         return tokenService.sign(user);
       })
       .then(token => {
-        res.redirect('WHERE DO WE REDIRECT ???' + token);
+        res.redirect('Redirect to Welcome page??' + token);
       })
       .catch(next);
   });
