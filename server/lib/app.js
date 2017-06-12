@@ -7,11 +7,11 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-// const goals = require('./routes/goals');
+const goals = require('./routes/goals');
 const users = require('./routes/users');
 const plaid = require('./routes/plaid');
 
-// app.use('/api/goals', goals);
+app.use('/api/goals', goals);
 app.use('/api/users', users);
 app.use('/api/plaid', plaid);
 
