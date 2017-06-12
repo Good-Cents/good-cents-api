@@ -9,7 +9,11 @@ const schema = new Schema({
   email: String,
   password: String,
   hash: String,
-  goals: [{type: Schema.Types.ObjectId, ref: 'Goal'}]
+  goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }],
+  accounts: [{
+    name: String,
+    primary: Boolean
+  }]
 });
 
 //Methods below are for app encryption
