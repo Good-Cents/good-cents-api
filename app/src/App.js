@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './css/App.css';
 import BankLink from './Plaid/BankLink';
-import plaidAPI from './Plaid/plaidAPI';
+import plaidAPI from './api/plaidAPI';
 
 class App extends Component {
   constructor() {
