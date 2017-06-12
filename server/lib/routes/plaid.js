@@ -1,15 +1,15 @@
 require('dotenv').config();
 const plaid = require('plaid');
-var envvar = require('envvar');
-var moment = require('moment');
+const envvar = require('envvar');
+const moment = require('moment');
 
 const Router = require('express').Router;
 const router = Router();
 
-var PLAID_CLIENT_ID = envvar.string('PLAID_CLIENT_ID');
-var PLAID_SECRET = envvar.string('PLAID_SECRET');
-var PLAID_PUBLIC_KEY = envvar.string('PLAID_PUBLIC_KEY');
-var PLAID_ENV = envvar.string('PLAID_ENV', 'sandbox');
+const PLAID_CLIENT_ID = envvar.string('PLAID_CLIENT_ID');
+const PLAID_SECRET = envvar.string('PLAID_SECRET');
+const PLAID_PUBLIC_KEY = envvar.string('PLAID_PUBLIC_KEY');
+const PLAID_ENV = envvar.string('PLAID_ENV', 'sandbox');
 
 // Initalize Plaid's log-in and clients
 const plaidClient = new plaid.Client(
@@ -21,14 +21,16 @@ const plaidClient = new plaid.Client(
 
 // Initialize variables to be used
 // (In production, store it in a secure persistent data store)
-var ACCESS_TOKEN = null;
-var PUBLIC_TOKEN = null;
-var ITEM_ID = null;
+let ACCESS_TOKEN = null;
+let PUBLIC_TOKEN = null;
+let ITEM_ID = null;
 
 // Get initial server up
 
 // Get access token and create ITEM
+
 router.post('/get_access_token', function (request, response) {
+  console.log('*****************************');
   PUBLIC_TOKEN = request.body.public_token;
   return plaidClient.exchangePublicToken(PUBLIC_TOKEN)
     .then(tokenResponse => {
@@ -41,7 +43,7 @@ router.post('/get_access_token', function (request, response) {
       });
     })
     .catch(error => {
-      var msg = 'Could not exchange public_token!';
+      const msg = 'Could not exchange public_token!';
       console.log(msg + '\n' + error);
       return response.json({
         error: msg
