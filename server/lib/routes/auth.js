@@ -13,7 +13,7 @@ function hasEmailAndPassword(req, res, next) {
   }
   next();
 }
-
+//addded
 router
 
   .get('/verify', ensureAuth, (req, res) => {
