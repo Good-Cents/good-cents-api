@@ -60,7 +60,9 @@
   color: rgb(51, 62, 72);
   text-align: center;
   width: 90%;
-  height:800px;
+  height:350px;
+  line-height: 25px;
+  font-family: helvetica;
 }
 
 .welcomeHome p{
