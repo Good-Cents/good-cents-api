@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './css/App.css';
 import BankLink from './Plaid/BankLink';
 import plaidAPI from './api/plaidAPI';
 import Credentials from './components/Credentials';
 import authAPI from './api/authAPI';
+import NavBar from './components/NavBar';
+import saveYourWay from './photos/saveYourWay.jpg';
+import backpackBanner from './photos/backpackBanner.jpg'
 // import UserTransactions from './Plaid/UserTransactions';
 
 class App extends Component {
@@ -14,7 +16,7 @@ class App extends Component {
 
   signInUser(userName, password) {
     console.log('username & password:    ', userName, password);
-    authAPI.signin ({userName, password});
+    authAPI.signin({ userName, password });
     //
   }
 
@@ -25,18 +27,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src="/assets/images/svg/we-got-your-back.svg" className="App-logo" alt="logo" />
-          <h2>Good Cents API</h2>
-        </div>
-        <div className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-          <BankLink />
+        <NavBar />
+     
+          <img src={saveYourWay} alt="backpack" />
+         <div className="welcomeHome">
+            <h2 className="dash-trailing">This Is Good Cents.</h2>
+            <p>One taste silent disco beltane, patchouli retreat. Tahini Hafiz tofu, ancient toxins rites of passage surrender chia seeds natural homebirth om Dr. Bronner's. Doula ecstatic dance transformative solstice third eye midwifery higher cosmic force medical marijuana papyrus font, organic raw cacao. Namaste. A Simple Shared account helps you and your partner easily budget, save, and talk about money. In good financial partnership, one plus one can equal anything.</p>
+          </div>
+        
 
-          <Credentials logIn={this.signInUser}/>
+         <BankLink />
+
+        <Credentials logIn={this.signInUser} />
 
 
-        </div>
       </div>
     );
   }
