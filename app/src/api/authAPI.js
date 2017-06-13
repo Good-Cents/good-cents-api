@@ -8,7 +8,9 @@ export default {
     return request.post('/auth/signin', credentials);
   },
   signup(user) {
-    return request.post('/auth/signup', user);
+    const result = request.post('/auth/signup', user);
+    console.log('Result: ', result);
+    return result;
   },
   getUser() {
     return request.get('/me');

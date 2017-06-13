@@ -41,7 +41,7 @@ router
       })
       .then(token => {
         console.log(token);
-        res.send(token);
+        res.send({ token });
       })
       .catch(err => console.log(err));
   })

@@ -1,4 +1,4 @@
-import * as actions from '../constants/constant';
+import * as actions from './constants';
 import { combineReducers } from 'redux';
 
 const initialState = {

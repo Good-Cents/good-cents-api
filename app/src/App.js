@@ -4,9 +4,8 @@ import plaidAPI from './api/plaidAPI';
 import authAPI from './api/authAPI';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import Credentials from './components/Credentials';
-import Signup from './components/Signup';
-import Auth from './components/Auth';
+import Credentials from './components/Main/Credentials';
+import Auth from './components/Main/Auth';
 import {
   BrowserRouter as Router,
   Route, Switch, Redirect, Link

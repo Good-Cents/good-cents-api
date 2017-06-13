@@ -1,11 +1,11 @@
-import * as action from '../constants/constant';
-import authAPI from '../api/authAPI';
-import { getStoredToken } from '../api/request';
+import * as action from './constants';
+import authAPI from '../../api/authAPI';
+import { getStoredToken } from '../../api/request';
 
 export function signup(user) {
   return dispatch => {
     authAPI.signup(user)
-    .then( token => {
+    .then(({ token }) => {
       console.log('Token in Auth: ', token);
       dispatch({ type: action.GOT_TOKEN, payload: token });
     })

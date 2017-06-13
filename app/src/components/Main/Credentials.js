@@ -1,5 +1,5 @@
 import React from 'react';
-import authAPI from '../api/authAPI';
+import authAPI from '../../api/authAPI';
 
 export default ({ submit, allowName = false }) => (
   <form onSubmit={e => {
