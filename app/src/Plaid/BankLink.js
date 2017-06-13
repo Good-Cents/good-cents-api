@@ -17,7 +17,7 @@ const handler = Plaid.create({
     console.log('Got public token ', public_token);
 
     plaidAPI.getAccessToken(public_token)
-    .then( res => console.log("res:", res));
+      .then(res => console.log("res:", res));
   },
   onExit: function (err, metadata) {
     console.log('Error: ', err, metadata);
@@ -28,6 +28,7 @@ export default function BankLink() {
   return (
     <div>
       Welcome to Good Cents! Link your bank account below:
+        <button onClick={() => handler.open()}>Link Bank Account</button>
     </div>
   );
 }
