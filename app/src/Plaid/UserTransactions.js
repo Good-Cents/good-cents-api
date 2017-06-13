@@ -1,8 +1,5 @@
-/* globals Plaid */
 import React, { Component } from 'react';
 import plaidAPI from '../api/plaidAPI';
-
-
 
 export default class UserTransactions extends Component {
 
@@ -12,12 +9,10 @@ export default class UserTransactions extends Component {
   }
 
   render() {
-
     return (
       <div>
-      
-</div>
 
+      </div>
     );
   }
 }
