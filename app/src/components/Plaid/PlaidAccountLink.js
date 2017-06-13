@@ -1,6 +1,6 @@
 /* globals Plaid */
 import React from 'react';
-import plaidAPI from '../api/plaidAPI';
+import plaidAPI from '../../api/plaidAPI';
 
 const handler = Plaid.create({
   apiVersion: 'v2',
@@ -18,7 +18,7 @@ const handler = Plaid.create({
   }
 });
 
-export default function BankLink() {
+export default function PlaidAccountLink() {
   return (
     <div>
       Welcome to Good Cents! Link your bank account below:

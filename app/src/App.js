@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Credentials from './components/Credentials';
 import Signup from './components/Signup';
+import Auth from './components/Auth';
 import {
   BrowserRouter as Router,
   Route, Switch, Redirect, Link
@@ -13,27 +14,17 @@ import {
 // import UserTransactions from './Plaid/UserTransactions';
 
 class App extends Component {
-
-  signInUser(userName, password) {
-    authAPI.signin({ userName, password });
-  }
-
-  linkUser() {
-    plaidAPI.get();
-  }
-
   render() {
-    return ( 
-        <Router>
-          <div className="App">
-            <NavBar />
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/login" component={Credentials}/>
-                <Route path="/signup" component={Signup}/>
-              </Switch>
-          </div>
-        </Router>
+    return (
+      <Router>
+        <div className="App">
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/auth" render={() => <Auth/>}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

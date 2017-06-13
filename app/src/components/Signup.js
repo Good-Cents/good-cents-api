@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
+import authAPI from '../api/authAPI';
 
 export default class Signup extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: '',
-      email: '',
-      userName: '',
-      password: ''
-    };
-
     this.changeUserName = event => this.setState({ userName: event.target.value });
     this.changePassword = event => this.setState({ password: event.target.value });
     this.changeName = event => this.setState({ name: event.target.value });
     this.changeEmail = event => this.setState({ email: event.target.value });
-    this.signUp = () => props.signUp(this.state.userName, this.state.password,this.state.name,this.state.email);
   }
+
+  // signUp() {
+  //   authAPI.signup({ userName, password })
+  //     .then(user => console.log(user));
+  // }
 
   render() {
     return (
       <div>
         <div>
           <label>User Name:
-            <input name="username" type="text"  onChange={this.changeUserName} value={this.state.userName} />
+            <input name="username" type="text" onChange={this.changeUserName} value={this.state.userName} />
           </label>
         </div>
         <div>
@@ -42,7 +40,7 @@ export default class Signup extends Component {
           </label>
         </div>
         <div>
-          <button onClick={this.logIn}>Sign Up</button>
+          <button onClick={this.signUp}>Sign Up</button>
         </div>
       </div>
     );

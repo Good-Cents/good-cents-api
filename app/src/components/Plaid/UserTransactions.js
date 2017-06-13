@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import plaidAPI from '../api/plaidAPI';
+import plaidAPI from '../../api/plaidAPI';
 
 export default class UserTransactions extends Component {
 

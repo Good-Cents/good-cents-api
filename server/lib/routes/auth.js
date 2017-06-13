@@ -15,14 +15,11 @@ function hasEmailAndPassword(req, res, next) {
 }
 
 router
-
-
-
   .get('/verify', ensureAuth, (req, res) => {
     res.send({ valid: true });
   })
 
-  .post('/signup', hasEmailAndPassword, (req, res, next) => {
+  .post('/signup', hasEmailAndPassword, (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
@@ -43,9 +40,10 @@ router
         return tokenService.sign(user);
       })
       .then(token => {
-        res.redirect('Redirect to Welcome page??' + token);
+        console.log(token);
+        res.send(token);
       })
-      .catch(next);
+      .catch(err => console.log(err));
   })
 
   .post('/signin', (req, res, next) => {
