@@ -25,11 +25,9 @@ let ACCESS_TOKEN = null;
 let PUBLIC_TOKEN = null;
 let ITEM_ID = null;
 
-// Get initial server up
-
 // Get access token and create ITEM
 
-router.post('/get_access_token', function (request, response) {
+router.post('/get_access_token', (request, response) => {
   PUBLIC_TOKEN = request.body.public_token;
   return plaidClient.exchangePublicToken(PUBLIC_TOKEN)
     .then(tokenResponse => {
@@ -50,7 +48,7 @@ router.post('/get_access_token', function (request, response) {
     });
 });
 
-router.post('/set_access_token', function (request, response) {
+router.post('/set_access_token', (request, response) => {
   ACCESS_TOKEN = request.body.access_token;
   console.log('Access Token: ' + ACCESS_TOKEN);
   response.json({
@@ -58,73 +56,67 @@ router.post('/set_access_token', function (request, response) {
   });
 });
 
-router.get('/accounts', function (request, response) {
+router.get('/accounts', (request, response) => {
   // Retrieve high-level account information and account and routing numbers
   // for each account associated with the Item.
-  plaidClient.getAuth(ACCESS_TOKEN, function (error, authResponse) {
-    if (error != null) {
+  plaidClient.getAuth(ACCESS_TOKEN)
+    .then(authResponse => {
+      console.log(authResponse.accounts);
+      response.json({
+        error: false,
+        accounts: authResponse.accounts,
+        numbers: authResponse.numbers,
+      });
+    })
+    .catch(error => {
       var msg = 'Unable to pull accounts from the Plaid API.';
       console.log(msg + '\n' + error);
       return response.json({
         error: msg
       });
-    }
-
-    console.log(authResponse.accounts);
-    response.json({
-      error: false,
-      accounts: authResponse.accounts,
-      numbers: authResponse.numbers,
     });
-  });
 });
 
-router.post('/item', function (request, response, next) {
+router.post('/item', (request, response) => {
   // Pull the Item - this includes information about available products,
   // billed products, webhook information, and more.
-  plaidClient.getItem(ACCESS_TOKEN, function (error, itemResponse) {
-    if (error != null) {
-      console.log(JSON.stringify(error));
-      return response.json({
-        error: error
-      });
-    }
-
-    // Also pull information about the institution
-    plaidClient.getInstitutionById(itemResponse.item.institution_id, function (err, instRes) {
-      if (err != null) {
-        var msg = 'Unable to pull institution information from the Plaid API.';
-        console.log(msg + '\n' + error);
-        return response.json({
-          error: msg
+  return plaidClient.getItem(ACCESS_TOKEN)
+    .then(itemResponse => {
+      // Also pull information about the institution
+      console.log('Item: ', itemResponse.item);
+      return plaidClient.getInstitutionById(itemResponse.item.institution_id)
+        .then(instRes => {
+          response.json({
+            item: itemResponse.item,
+            institution: instRes.institution,
+          });
+        }).catch(error => {
+          console.log('Error: Could not retrieve item information ', JSON.stringify(error));
+          return response.json({
+            error: error
+          });
         });
-      } else {
-        response.json({
-          item: itemResponse.item,
-          institution: instRes.institution,
-        });
-      }
     });
-  });
 });
 
-router.post('/transactions', function (request, response, next) {
+router.post('/transactions', (request, response) => {
   // Pull transactions for the Item for the last 30 days
   let startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
   let endDate = moment().format('YYYY-MM-DD');
-  plaidClient.getTransactions(ACCESS_TOKEN, startDate, endDate, {
+  return plaidClient.getTransactions(ACCESS_TOKEN, startDate, endDate, {
     count: 250,
     offset: 0,
-  }, function (error, transactionsResponse) {
-    if (error != null) {
+  })
+    .then(transactionsResponse => {
+      console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
+      response.json(transactionsResponse);
+    })
+    .catch(error => {
       console.log(JSON.stringify(error));
       return response.json({
         error: error
       });
-    }
-    console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
-    response.json(transactionsResponse);
-  });
+    });
 });
 
 module.exports = router;
