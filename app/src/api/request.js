@@ -1,17 +1,17 @@
-import store from '../store';
+// import store from '../store';
 import superagent from 'superagent';
 
 let token = '';
 
 const storage = sessionStorage;
 
-store.subscribe(() => {
-  const { token: newToken } = store.getState();
-  if (newToken !== token) {
-    token = newToken;
-    token ? storage.token = token : storage.clear('token');
-  }
-});
+// store.subscribe(() => {
+//   const { token: newToken } = store.getState();
+//   if (newToken !== token) {
+//     token = newToken;
+//     token ? storage.token = token : storage.clear('token');
+//   }
+// });
 
 export const getStoredToken = () => storage.token;
 

@@ -24,6 +24,10 @@ router.get('/', (req, res, next) => {
     new User(req.body).save()
       .then(user => res.send(user))
       .catch(next);
+  })
+
+  .post('/auth/signin', (req, res, next) => {
+    console.log(req.body);
   });
 
 module.exports = router;

@@ -16,6 +16,8 @@ function hasEmailAndPassword(req, res, next) {
 
 router
 
+
+
   .get('/verify', ensureAuth, (req, res) => {
     res.send({ valid: true });
   })
@@ -44,6 +46,10 @@ router
         res.redirect('Redirect to Welcome page??' + token);
       })
       .catch(next);
+  })
+
+  .post('/signin', (req, res, next) => {
+    console.log(req.body);
   });
 
 module.exports = router;

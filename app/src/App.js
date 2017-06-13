@@ -4,6 +4,7 @@ import './css/App.css';
 import BankLink from './Plaid/BankLink';
 import plaidAPI from './api/plaidAPI';
 import Credentials from './components/Credentials';
+import authAPI from './api/authAPI';
 // import UserTransactions from './Plaid/UserTransactions';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
 
   signInUser(userName, password) {
     console.log('username & password:    ', userName, password);
+    authAPI.signin ({userName, password});
     //
   }
 
