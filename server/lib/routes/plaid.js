@@ -2,6 +2,7 @@ require('dotenv').config();
 const plaid = require('plaid');
 const envvar = require('envvar');
 const moment = require('moment');
+const User = require('../models/user');
 
 const Router = require('express').Router;
 const router = Router();
@@ -110,8 +111,8 @@ router.post('/item', function (request, response, next) {
 
 router.post('/transactions', function (request, response, next) {
   // Pull transactions for the Item for the last 30 days
-  var startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
-  var endDate = moment().format('YYYY-MM-DD');
+  let startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
+  let endDate = moment().format('YYYY-MM-DD');
   plaidClient.getTransactions(ACCESS_TOKEN, startDate, endDate, {
     count: 250,
     offset: 0,

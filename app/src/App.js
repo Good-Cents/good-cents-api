@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './css/App.css';
 import BankLink from './Plaid/BankLink';
 import plaidAPI from './api/plaidAPI';
+// import UserTransactions from './Plaid/UserTransactions';
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,8 @@ class App extends Component {
         <div className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
           <BankLink />
+
+
         </div>
       </div>
     );
