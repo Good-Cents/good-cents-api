@@ -7,7 +7,6 @@ module.exports = {
       id: user._id,
       roles: user.roles
     };
-    console.log('In Payload');
     return jwt.signAsync(payload, appSecret);
   },
   verify(token) {

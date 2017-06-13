@@ -6,7 +6,6 @@ export function signup(user) {
   return dispatch => {
     authAPI.signup(user)
     .then(({ token }) => {
-      console.log('Token in Auth: ', token);
       dispatch({ type: action.GOT_TOKEN, payload: token });
     })
     .then(() => authAPI.getUser())

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PlaidAccountLink from '../Plaid/PlaidAccountLink';
-import Credentials from './Credentials';
 import saveYourWay from '../../photos/saveYourWay.jpg';
 
 class LandingPage extends Component {

@@ -9,7 +9,6 @@ const handler = Plaid.create({
   product: ['transactions'],
   key: process.env.REACT_APP_PLAID_PUBLIC_KEY,
   onSuccess: function (public_token) {
-    console.log('Got public token ', public_token);
     plaidAPI.getAccessToken(public_token)
       .then(res => console.log('res:', res));
   },
