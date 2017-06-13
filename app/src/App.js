@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './css/App.css';
 import NavBar from './components/NavBar';
 import LandingPage from './components/Main/LandingPage';
+import About from './components/About';
 import Auth from './components/Main/Auth';
 import About from './components/About';
 import {
   BrowserRouter as Router,
-  Route, Switch, Redirect, Link
+  Route, 
+  Switch
 } from 'react-router-dom';
 // import UserTransactions from './Plaid/UserTransactions';
 
