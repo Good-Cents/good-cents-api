@@ -1,0 +1,55 @@
+.NavBar {
+    background-color: white;
+    height: 15vh;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
+
+.ListContainer{
+  text-decoration: none;
+  float: right;
+  padding-left: 10px;
+}
+
+.ListContainer li{
+  display:inline-block;
+  text-decoration: none;
+  padding: 0px 20px;
+
+}
+
+.navLogo{
+  padding: 10px;
+  float: left;
+  max-width: 25vh;
+  max-height: 10vh;
+}
+
+.navButton{
+    background: #0d97ff;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 15px;
+    font-family: "CalibreSemibold", helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    max-height: 40px;
+    line-height: 40px;
+    padding: 10px, 25px;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+    .ListContainer {
+        display: none;
+        height: 100vh;
+    }
+
+    .navLogo {
+        height: 5vh;
+        width: 30vw;
+    }
+}

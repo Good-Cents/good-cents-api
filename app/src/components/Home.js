@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PlaidAccountLink from './Plaid/PlaidAccountLink';
 import Credentials from './Main/Credentials';
 import saveYourWay from '../photos/saveYourWay.jpg';
+import '../css/Home.css';
 
 class Home extends Component {
   render() {
