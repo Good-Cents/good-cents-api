@@ -3,6 +3,7 @@ require('dotenv').config();
 const plaid = require('plaid');
 const envvar = require('envvar');
 const moment = require('moment');
+const User = require('../models/user');
 
 const Router = require('express').Router;
 const router = Router();
@@ -36,9 +37,7 @@ router.post('/get_access_token', (request, response) => {
       ITEM_ID = tokenResponse.item_id;
       console.log('Access Token: ' + ACCESS_TOKEN);
       console.log('Item ID: ' + ITEM_ID);
-      response.json({
-        'error': false
-      });
+      
     })
     .catch(error => {
       const msg = 'Could not exchange public_token!';
@@ -104,6 +103,7 @@ router.post('/transactions', (request, response) => {
   // Pull transactions for the Item for the last 30 days
   let startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
   let endDate = moment().format('YYYY-MM-DD');
+  let ACCESS_TOKEN = req.body;
   return plaidClient.getTransactions(ACCESS_TOKEN, startDate, endDate, {
     count: 250,
     offset: 0,
