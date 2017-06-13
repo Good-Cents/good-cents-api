@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './css/App.css';
 import BankLink from './Plaid/BankLink';
 import plaidAPI from './api/plaidAPI';
+import Credentials from './components/Credentials';
 // import UserTransactions from './Plaid/UserTransactions';
 
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
     super()
   }
 
-  signInUser() {
+  signInUser(userName, password) {
+    console.log('username & password:    ', userName, password);
     //
   }
 
@@ -28,6 +30,8 @@ class App extends Component {
         <div className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
           <BankLink />
+
+          <Credentials logIn={this.signInUser}/>
 
 
         </div>
