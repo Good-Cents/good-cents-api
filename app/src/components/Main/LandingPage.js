@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import PlaidAccountLink from './Plaid/PlaidAccountLink';
-import Credentials from './Main/Credentials';
-import saveYourWay from '../photos/saveYourWay.jpg';
-import '../css/Home.css';
+import PlaidAccountLink from '../Plaid/PlaidAccountLink';
+import saveYourWay from '../../photos/saveYourWay.jpg';
 
-class Home extends Component {
+class LandingPage extends Component {
   render() {
     return (
       <div className="Home">
@@ -19,4 +17,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default LandingPage;

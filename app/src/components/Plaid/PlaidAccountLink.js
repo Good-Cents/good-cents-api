@@ -1,6 +1,6 @@
 /* globals Plaid */
 import React from 'react';
-import plaidAPI from '../api/plaidAPI';
+import plaidAPI from '../../api/plaidAPI';
 
 const handler = Plaid.create({
   apiVersion: 'v2',
@@ -9,7 +9,6 @@ const handler = Plaid.create({
   product: ['transactions'],
   key: process.env.REACT_APP_PLAID_PUBLIC_KEY,
   onSuccess: function (public_token) {
-    console.log('Got public token ', public_token);
     plaidAPI.getAccessToken(public_token)
       .then(res => console.log('res:', res));
   },
@@ -18,7 +17,7 @@ const handler = Plaid.create({
   }
 });
 
-export default function BankLink() {
+export default function PlaidAccountLink() {
   return (
     <div>
       Welcome to Good Cents! Link your bank account below:

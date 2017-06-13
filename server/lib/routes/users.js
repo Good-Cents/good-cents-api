@@ -15,7 +15,6 @@ router.get('/', (req, res, next) => {
       .then(user => {
         if (!user) return res.status(404).send(`${id} is not a user`);
         else res.send(user);
-
       })
       .catch(next);
   })

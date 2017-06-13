@@ -28,7 +28,6 @@ let PUBLIC_TOKEN = null;
 let ITEM_ID = null;
 
 // Get access token and create ITEM
-
 router.post('/get_access_token', (request, response) => {
   PUBLIC_TOKEN = request.body.public_token;
   return plaidClient.exchangePublicToken(PUBLIC_TOKEN)
@@ -37,7 +36,7 @@ router.post('/get_access_token', (request, response) => {
       ITEM_ID = tokenResponse.item_id;
       console.log('Access Token: ' + ACCESS_TOKEN);
       console.log('Item ID: ' + ITEM_ID);
-      
+
     })
     .catch(error => {
       const msg = 'Could not exchange public_token!';
