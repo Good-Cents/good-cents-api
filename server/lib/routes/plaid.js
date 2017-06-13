@@ -2,7 +2,6 @@ require('dotenv').config();
 const plaid = require('plaid');
 const envvar = require('envvar');
 const moment = require('moment');
-const User = require('../models/user');
 
 const Router = require('express').Router;
 const router = Router();
