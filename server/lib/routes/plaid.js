@@ -1,3 +1,4 @@
+/*eslint-disable*/
 require('dotenv').config();
 const plaid = require('plaid');
 const envvar = require('envvar');
