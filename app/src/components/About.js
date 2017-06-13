@@ -3,6 +3,8 @@ import Carousel from 'nuka-carousel';
 import Goals from '../photos/illustration-home-goal.png';
 import ATM from '../photos/illustrationATM.png';
 import WithYou from '../photos/illustrationWithYou.png';
+import PlaidAccountLink from './Plaid/PlaidAccountLink';
+
 import '../css/About.css';
 
 function About() {
@@ -19,7 +21,8 @@ function About() {
         </div>
         <div>
             <img src={WithYou} alt="WithYou" />
-            <h2>Click Here to get started</h2>
+            <h2>Link Your Bank Acount Now</h2>
+              <PlaidAccountLink />
         </div>
       </Carousel>
     </div>
