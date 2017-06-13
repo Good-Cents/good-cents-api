@@ -4,6 +4,7 @@ import plaidAPI from './api/plaidAPI';
 import authAPI from './api/authAPI';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
+import About from './components/About';
 import Credentials from './components/Credentials';
 import Signup from './components/Signup';
 import {
@@ -29,6 +30,7 @@ class App extends Component {
             <NavBar />
               <Switch>
                 <Route exact path="/" component={Home}/>
+                <Route path="/about" component={About}/>
                 <Route path="/login" component={Credentials}/>
                 <Route path="/signup" component={Signup}/>
               </Switch>
