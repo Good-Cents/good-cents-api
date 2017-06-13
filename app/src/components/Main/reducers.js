@@ -1,11 +1,7 @@
 import * as actions from './constants';
 import { combineReducers } from 'redux';
 
-const initialState = {
-  user: {}
-};
-
-function user(state = initialState, action) {
+function user(state = null, action) {
   switch (action.type) {
     case actions.ADDED_USER:
       return action.payload;

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Switch, Route, Link, withRouter } from 'react-router-dom';
+import { Switch, Route, Link, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signin, signup } from './actions';
 import Credentials from './Credentials';
 
 function Auth({ user, signin, signup, error, location, token }) {
+  if (user) return <Redirect to="/about"/>;
   return (
     <div>
       Sign into your account!
