@@ -1,5 +1,4 @@
 import React from 'react';
-import authAPI from '../../api/authAPI';
 
 export default ({ submit, allowName = false }) => (
   <form onSubmit={e => {
@@ -11,9 +10,11 @@ export default ({ submit, allowName = false }) => (
     }, {});
     submit(data);
   }}>
-    { allowName && <label>name: <input name="name"/></label>}
-    <label>email: <input name="email"/></label>
-    <label>password: <input type="password" name="password"/></label>
+    {allowName &&
+      <label>name: <input name="name" /></label>
+    }
+    <label>email: <input name="email" /></label>
+    <label>password: <input type="password" name="password" /></label>
     <button>Log In</button>
   </form>
 );

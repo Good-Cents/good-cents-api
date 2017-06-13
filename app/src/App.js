@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import './css/App.css';
-import plaidAPI from './api/plaidAPI';
-import authAPI from './api/authAPI';
 import NavBar from './components/NavBar';
-import Home from './components/Home';
 import LandingPage from './components/Main/LandingPage';
-import Credentials from './components/Main/Credentials';
+import About from './components/About';
 import Auth from './components/Main/Auth';
 import {
   BrowserRouter as Router,
-  Route, Switch, Redirect, Link
+  Route, 
+  Switch
 } from 'react-router-dom';
 // import UserTransactions from './Plaid/UserTransactions';
 
@@ -22,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/auth" render={() => <Auth/>}/>
+            <Route path="/about" component={About} />
           </Switch>
         </div>
       </Router>
