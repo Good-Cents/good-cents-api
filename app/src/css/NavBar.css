@@ -1,0 +1,59 @@
+
+.NavBar {
+    background-color: rgb(255, 255, 255, .3);
+    width: 100%;
+    background-color: white;
+    padding: 25px 60px;
+    text-align: left;
+}
+
+.ListContainer{
+  text-decoration: none;
+  float: right;
+}
+
+.ListContainer li{
+  display:inline-block;
+  text-decoration: none;
+  padding: 0px 10px;
+  font-size: 20px;
+ 
+}
+
+.ListContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.navLogo{
+  max-width: 25%;
+  height: auto;
+}
+
+.navButton{
+    background: rgb(8, 175, 142);
+    color: #ffffff;
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    max-height: 40px;
+    line-height: 40px;
+    padding: 10px, 25px;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 3px;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .ListContainer {
+        display: none;
+        height: 100vh;
+    }
+
+    .navLogo {
+        height: 5vh;
+        width: 30vw;
+    }
+}

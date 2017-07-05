@@ -1,0 +1,38 @@
+.headers {
+    color: #0d97ff;
+}
+
+.Transactions h5 {
+    text-align: left;
+    display: block;
+    font-family: 'Source Sans Pro';
+    color: #0d97ff;
+    font-size: 1em;
+}
+
+.Transactions p {
+    display: block;
+    text-align: left;
+    font-size: 1em;
+    color:rgb(8, 175, 142);
+}
+
+.applist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.applist div {
+    width: 100%;
+	padding: 2% 5%;
+}
+
+.TransContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid #0d97ff;
+    border-radius: 3px;
+    margin-top: 2px;
+}

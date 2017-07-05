@@ -1,0 +1,77 @@
+.Home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.TopContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.chartOne {
+  height: 60%;
+  width: 90%;
+}
+
+.PiggyContainer {
+  background-color: white;
+  height: 30vw;
+  width: 45vw;
+  margin: 8px 8px;
+  padding: 3vh;
+}
+
+#container {
+  margin: 20px auto;
+  width: 50%;
+  height: 50%;
+  position: relative;
+}
+
+.UserContainer {
+  height: 35vw;
+  width: 45vw;
+  margin: 8px 8px;
+}
+
+.UserBox {
+  background-color: white;
+  height: 15vw;
+  width: 45vw;
+  margin: 8px 8px;
+  color: #0d97ff;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserBox h2 {
+  font-size: 5em;
+}
+
+.ButtonsBox {
+  background-color: white;
+  height: 5vw;
+  width: 22vw;
+  margin: 5px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.TransactionsContainer {
+  background-color: white;
+  width: 90%;
+  margin: 30px 8px;
+  padding: 2vh;
+}
+

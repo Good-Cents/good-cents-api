@@ -1,0 +1,20 @@
+.footer {
+  background-color: white;
+  height: 150px;
+  min-height: 30%;
+  width: 100%;
+  padding: 10vh 0 10vh 0;
+  font-family: helvetica;
+  color: rgb(51, 62, 72);;
+}
+
+.footerNavigation {
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.footerNavigation li {
+  display: inline-block;
+  list-style: none;
+  padding: 0px 20px;
+}

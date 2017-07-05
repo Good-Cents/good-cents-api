@@ -1,0 +1,34 @@
+.SetGoal {
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    flex-direction: column; 
+
+}
+
+.Pic {
+    height: 30vh;
+    margin: 0 auto;
+    margin-top: 5vh;
+    padding: 2vw;
+    width: 35vw;
+    border: 1vw solid #0d97ff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.Button {
+    background-color: #0d97ff;
+    color: white;
+    margin: 0 auto;
+    height: 10vh;
+    width: 41vw;
+    padding-top: 2vh;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.Button:hover {
+    background-color: white;
+    color: #0d97ff;
+}
