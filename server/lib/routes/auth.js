@@ -19,7 +19,7 @@ router
     res.send({ valid: true });
   })
 
-  .post('/signup', hasEmailAndPassword, (req, res) => {
+  .post('/signup', hasEmailAndPassword, (req, res, next) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
@@ -40,14 +40,25 @@ router
         return tokenService.sign(user);
       })
       .then(token => {
-        console.log(token);
         res.send({ token });
       })
-      .catch(err => console.log(err));
+      .catch(next);
   })
 
-  .post('/signin', (req, res, next) => {
-    console.log('Body: ', req.body);
+  .post('/signin', hasEmailAndPassword, (req, res, next) => {
+    const { email, password } = req.body;
+    delete req.body.password;
+
+    User.findOne({ email })
+      .then(user => {
+        if (!user || !user.comparePassword(password)) {
+          throw { code: 401, error: 'Invalid Login: Username or password is incorrect' };
+        }
+        return user;
+      })
+      .then(user => tokenService.sign(user))
+      .then(token => res.send({ token }))
+      .catch(next);
   });
 
 module.exports = router;

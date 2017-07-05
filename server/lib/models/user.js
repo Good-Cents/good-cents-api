@@ -8,13 +8,13 @@ const schema = new Schema({
   email: String,
   password: String,
   hash: String,
-  plaidAccessToken: String,
-  bankAccountEntered: Boolean,
   goals: [{ type: Schema.Types.ObjectId, ref: 'Goal' }],
-  accounts: [{
-    name: String,
-    primary: Boolean
-  }]
+  plaid: {
+    plaid_item_id: String,
+    access_token: String,
+    accounts: [],
+    transactions: []
+  }
 });
 
 //Methods below are for app encryption
