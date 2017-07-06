@@ -1,55 +1,54 @@
 {
-"name": "app",
-"version": "0.1.0",
-"private": true,
-"dependencies": {
-"chart.js": "^1.1.1",
-"halogen": "^0.2.0",
-"nuka-carousel": "^2.0.4",
-"plaid": "^2.0.4",
-"react": "^15.6.1",
-"react-addons-css-transition-group": "^15.6.0",
-"react-addons-transition-group": "^15.6.0",
-"react-burger-menu": "^2.0.2",
-"react-chartjs": "^0.8.0",
-"react-dom": "^15.6.1",
-"react-redux": "^5.0.5",
-"react-resize-detector": "^0.5.0",
-"react-router": "^4.1.1",
-"react-router-dom": "^4.1.1",
-"react-router-transition": "^0.1.1",
-"reactnav": "^2.0.0",
-"recharts": "^1.0.0-alpha.1",
-"redux": "^3.6.0",
-"redux-devtools-extension": "^2.13.2",
-"redux-thunk": "^2.2.0",
-"superagent": "^3.5.2"
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "plaid": "^2.0.4",
+    "chart.js": "^1.1.1",
+    "halogen": "^0.2.0",
+    "nuka-carousel": "^2.0.4",
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "react-burger-menu": "^2.0.2",
+    "react-chartjs": "^0.8.0",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-resize-detector": "^0.5.0",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-transition": "^0.1.1",
+    "reactnav": "^2.0.0",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0",
+    "superagent": "^3.5.2"
   },
-"devDependencies": {
-"progressbar.js": "^1.0.1",
-"react-scripts": "1.0.7"
+  "devDependencies": {
+    "progressbar.js": "^1.0.1",
+    "react-scripts": "1.0.7"
   },
-"scripts": {
-"start": "react-scripts start",
-"build": "react-scripts build && npm run copy",
-"copy": "rm -rf ../server/public && cp -R ./build ../server/public",
-"test": "react-scripts test --env=jsdom",
-"eject": "react-scripts eject"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && npm run copy",
+    "copy": "rm -rf ../server/public && cp -R ./build ../server/public",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
-"proxy": "http://localhost:4000",
-"description": "Alternative payment systems to Snapsepay: * https://www.quora.com/What-is-the-most-frictionless-and-inexpensive-way-to-send-ACH-payments-for-an-online-marketplace *",
-"main": "index.js",
-"repository": {
- "type": "git",
-"url": "git+https://github.com/Good-Cents/app.git"
+  "proxy": "http://localhost:4000",
+  "description": "Alternative payment systems to Snapsepay: * https://www.quora.com/What-is-the-most-frictionless-and-inexpensive-way-to-send-ACH-payments-for-an-online-marketplace *",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Good-Cents/app.git"
   },
-"author": "",
-"license": "ISC",
-"bugs": {
- "url": "https://github.com/Good-Cents/app/issues"
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Good-Cents/app/issues"
   },
-"homepage": "https://github.com",
-"keywords": [
+  "homepage": "https://github.com",
+  "keywords": [
     "Front-end",
     "application",
     "for",
